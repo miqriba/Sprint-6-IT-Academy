@@ -1,0 +1,17 @@
+#textCard {
+  font-size: 11px !important;
+}
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+input {
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
