@@ -1,6 +1,10 @@
 import React from "react";
 import { useContext } from "react";
-import { MyContext } from "../Context";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import ReactModal from "react-modal";
+import Modal from "./Modal";
+import { MyContext } from "../pages/Context";
 import { ButtonRound } from "./Components.style";
 
 function Web() {
@@ -58,52 +62,57 @@ function Web() {
     setTotal(totalCards + (llengs + pags) * 30);
   };
   return (
-    <div className="d-flex m-3 flex-column align-items-end w-100">
-      <div id="textCard" className="fw-bold me-1">
-        Nombre de pàgines:{" "}
-        <ButtonRound id="0" className="ms-1" onClick={updatePagsLlengs}>
-          -
-        </ButtonRound>
-        <input
-          onChange={updatePags}
-          id="0"
-          style={{
-            width: "2rem",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-          }}
-          type="number"
-          className="ms-1 me-1"
-          min="0"
-          value={pags}
-        />
-        <ButtonRound id="0" onClick={updatePagsLlengs}>
-          +
-        </ButtonRound>
+    <>
+      <div className="d-flex m-3 flex-column align-items-end w-100">
+        <div id="textCard" className="fw-bold me-1">
+          <Modal id="buttonInfo" tipus="pàgines"></Modal>
+          Nombre de pàgines:{" "}
+          <ButtonRound id="0" className="ms-1" onClick={updatePagsLlengs}>
+            -
+          </ButtonRound>
+          <input
+            onChange={updatePags}
+            id="0"
+            style={{
+              width: "2rem",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+            }}
+            type="number"
+            className="ms-1 me-1"
+            min="0"
+            value={pags}
+          />
+          <ButtonRound id="0" onClick={updatePagsLlengs}>
+            +
+          </ButtonRound>
+        </div>
+        <div id="textCard" className="fw-bold m-1">
+          <Modal id="buttonInfo" tipus="llenguatges"></Modal>
+          Nombre de llenguatges:{" "}
+          <ButtonRound id="1" className="ms-1" onClick={updatePagsLlengs}>
+            -
+          </ButtonRound>
+          <input
+            onChange={updateLlengs}
+            id="1"
+            style={{
+              width: "2rem",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+            }}
+            type="number"
+            className="ms-1 me-1"
+            min="0"
+            value={llengs}
+          />
+          <ButtonRound id="1" onClick={updatePagsLlengs}>
+            +
+          </ButtonRound>
+        </div>
       </div>
-      <div id="textCard" className="fw-bold m-1">
-        Nombre de llenguatges:{" "}
-        <ButtonRound id="1" className="ms-1" onClick={updatePagsLlengs}>
-          -
-        </ButtonRound>
-        <input
-          onChange={updateLlengs}
-          id="1"
-          style={{
-            width: "2rem",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-          }}
-          type="number"
-          className="ms-1 me-1"
-          min="0"
-          value={llengs}
-        />
-        <ButtonRound id="1" onClick={updatePagsLlengs}>
-          +
-        </ButtonRound>
-      </div>
-    </div>
+      {/* Info modals */}
+    </>
   );
 }
 
